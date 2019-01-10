@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Create your Post</h1>
+<div class="all-forms">
+  <form class="creation_form" action="{% url 'article:create' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="submission">
+      <input type="submit" name="create-button" value="Create">
+    </div>
+  </form>
+  <form class="cancellation" action="{% url 'article:arlist' %}" method="post">
+    {% csrf_token %}
+    <div class="cancellation">
+      <input type="submit" value="Cancel">
+    </div>
+  </form>
+</div>
+{% endblock%}

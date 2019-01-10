@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>ARTICLES</h1>
+    <br>
+    <div class="articles">
+      {% csrf_token %}
+      <!--Python code like for loops are written inside this thing.-->
+      {% for a_article in articles_all %}
+       <div class="article">
+         <!--Data obtained from the database should be written inside this.-->
+         <a href="{% url 'article:urlname' pagename=a_article.slug %}">{{a_article.title}}</a>
+         <h4>{{ a_article.author }}</h4>
+         <p>{{ a_article.short }}</p>
+         <p>{{ a_article.date }}</p>
+       </div>
+      {% endfor %}
+    </div>
+{% endblock %}
