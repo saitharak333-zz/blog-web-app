@@ -1,4 +1,5 @@
 # blog-web-app
+
 I have used Python 3.6.7 version and Django 2.1 version.
 It successfully ran on Ubuntu 18.04 OS.
 These instructions are strictly for linux users, other users have to modify the statements as per their system standards.
@@ -50,3 +51,17 @@ Open your web browser and type the url,
     http://127.0.0.1:8000/
     
 This takes you to the homepage and you can create your own articles.
+
+I have designed this blog assuming that it has to be a private inter college blog. 
+
+So I have only given the permision to superadmin to create the users. But I also have given the template of creating our own signup form but left it as such. Didn't give connection to the user database.
+
+In order to open admin site use this url,
+
+    http://127.0.0.1:8000/admin
+    
+ I have already created a superuser which is stored in the database, to login into the database use credentials
+ 
+    username: tharak
+    password: test1234
+    
