@@ -65,3 +65,8 @@ In order to open admin site use this url,
     username: tharak
     password: test1234
     
+Testings usernames,
+ 
+    username: B150289ME
+    password: tharaksaibobba
+    
