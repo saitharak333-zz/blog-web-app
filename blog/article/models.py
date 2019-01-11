@@ -8,7 +8,7 @@ class Article(models.Model):
     slug = models.SlugField()
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)  # To the date field the date will b automatically added.
-    thumbnail = models.ImageField(blank=True)
+    thumbnail = models.ImageField()
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING, default=None)
     # Fields in this model will map to the colum ns of the database.
     # Models created here should be then migrated(connection to the database should be established).

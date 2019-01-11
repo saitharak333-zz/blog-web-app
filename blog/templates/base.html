@@ -42,6 +42,11 @@ div.entire-page h1{
   font-size: 1.6cm;
 }
 
+div.details img{
+align-items: center;
+width: 100%
+}
+
 header{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -172,23 +177,6 @@ li a{
   margin: 10px 0;
 }
 
-.submission input{
-  background: #00dba0;
-  border: 0;
-  color: #fff;
-  font-size: 16px;
-  border-radius: 4px;
-  align-self: center;
-  margin-bottom: 2px
-}
-
-.cancellation input{
-  background: #cc0000;
-  border:0;
-  color: #fff;
-  font-size: 16px;
-  border-radius: 4px;
-}
 
 .fa {
 padding: 20px;
@@ -213,30 +201,22 @@ margin: 4px 4px;
   color: white;
 }
 
-
 .fa-linkedin {
   background: #007bb5;
   color: white;
 }
-.buttons-social{
-  align-content: center;
-  align-self: center;
-  align-items: center;
-}
+
 </style>
 
   <body>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="entire-page">
       <a href="{% url 'article:arlist' %}"><img src="/static/logo.png" alt="Logo" class="center"></a>
-        {% if user.is_authenticated %}
-        <nav>
+      {% if user.is_authenticated %}
+      <nav>
         <ul>
           <li>
-            <form class="logout_user" action="{% url 'users:logout' %}" method="post">
-              {% csrf_token %}
-              <button type="sumbit" name="Log Out">Log Out</button>
-            </form>
+            <a href="{% url 'article:arlist' %}">Home</a>
           </li>
           <li>
             <form class="create_article" action="{% url 'article:create' %}" method="post">
@@ -245,34 +225,33 @@ margin: 4px 4px;
             </form>
           </li>
           <li>
-            <a href="{% url 'article:about' %}">About</a>
+            <a href="{% url 'article:contact' %}">Connect</a>
+          </li>
+          <li>
+            <form class="logout_user" action="{% url 'users:usrsignout' %}" method="post">
+              {% csrf_token %}
+              <button type="sumbit" name="Logout--">Log Out</button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+      {% else %}
+      <nav>
+        <ul>
+          <li>
+            <a href="{% url 'article:arlist' %}">Home</a>
           </li>
           <li>
             <a href="{% url 'article:contact' %}">Connect</a>
           </li>
-        </ul>
-        {% else %}
-        <ul>
           <li>
-            <form class="signup_user" action="{% url 'users:signup' %}" method="post">
+            <form action="{% url 'users:letssignin' %}" method="post">
               {% csrf_token %}
-              <button type="submit" name="SignUp">Sign Up</button>
-            </form>
-          </li>
-          <li>
-            <form class="login_user" action="{% url 'users:userlogin' %}" method="post">
-              {% csrf_token %}
-              <button type="sumbit" name="Log In">Log In</button>
-          </li>
-          <li>
-            <a href="{% url 'article:about' %}">About</a>
-          </li>
-          <li>
-            <a href="{% url 'article:contact' %}">Contact Me</a>
+              <button type="sumbit" name="Log-In">Log In</button>
           </li>
         </ul>
-    </nav>
-        {% endif %}
+      </nav>
+      {% endif %}
       {% block content %}
       {% endblock %}
     </div>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>Log In</h1>
+  <div class="all-forms">
+    <form action="{% url 'users:letssignin' %}" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+        <input type="submit" name="usr-signin" value="Sign In">
+    </form>
+    <form action="signup" method="get">
+      <input type="submit" value="SignUp">
+    </form>
+  </div>
+</div>
+{% endblock %}

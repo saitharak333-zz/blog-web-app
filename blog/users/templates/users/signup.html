@@ -4,19 +4,14 @@
   <div class="container">
     <h1>Sign Up</h1>
     <div class="all-forms">
-    <form action="{% url 'users:signup' %}" method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <div class= "submission">
-        <input type="submit" name="usr-signup" value="SignUp">
-      </div>
+      <form action="{% url 'users:usrsignup' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="SignUp">
       </form>
-    <form action="{% url 'article:arlist' %}" method="post">
-      {% csrf_token %}
-      <div class="cancellation">
-        <input type="submit" value="Cancel">
-      </div>
-    </form>
-  </div>
+      <form action="{% url 'article:arlist' %}" method="get">
+        <input type="submit" value="Cancel"> 
+      </form>
+    </div>
   </div>
 {% endblock %}

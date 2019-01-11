@@ -4,8 +4,8 @@ from . import views # Importing views.py file from the current directory
 app_name = 'users'
 
 urlpatterns = [
-    path('signup/',views.signup_func, name = 'signup'),
-    path('login/', views.signup_func, name = 'login'),
-    path('usrlogin/',views.login_func, name = 'userlogin'),
-    path('logout/', views.logout_func, name = 'logout'),
+    path('signup/',views.signup_func, name = 'usrsignup'),
+    path('signin/',views.signin_func, name = 'letssignin'),
+    path('signin/signup',views.signup_func, name = 'ursssignup'),
+    path('signout/', views.signout_func, name = 'usrsignout'),
 ]

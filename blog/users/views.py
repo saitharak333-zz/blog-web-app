@@ -6,33 +6,38 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 # User Logging In
 from django.contrib.auth import login, logout
 
-# Create your views here.
 def signup_func(request):
-    # checking for the type of the request.
+    print(1)
     if request.method == 'POST':
-        form = UserCreationForm(data=request.POST)
+        print(2)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
-            # Saving the form info in user and using this user variable to login automatically.
+            print(3)
             user = form.save()
-            login(request, user)
             return redirect('article:arlist')
     else:
+        print(4)
         form = UserCreationForm()
+    print(9)
     return render(request, 'users/signup.html', {'form':form})
 
-def login_func(request):
-    # checking for the type of the request.
+def signin_func(request):
+    print(5)
     if request.method == 'POST':
+        print(6)
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
+            print(7)
             user = form.get_user()
             login(request, user)
             return redirect('article:arlist')
     else:
+        print(8)
         form = AuthenticationForm()
-    return render(request, 'users/login.html', {'form':form})
+    print(10)
+    return render(request, 'users/signin.html', {'form':form})
 
-def logout_func(request):
+def signout_func(request):
     if request.method == 'POST':
         logout(request)
         return redirect('article:arlist')
